@@ -1,7 +1,8 @@
 <h1 align="center">📦 Termux Basic Package Installer</h1>
+
 <p align="center">
-  <strong>Install essential Termux packages with a single command</strong><br>
-  <em>Fast · Simple · Perfect for Beginners</em>
+  <em>Fast · Simple · Perfect for Beginners</em><br>
+  <strong>Install essential Termux packages with a single command</strong>
 </p>
 
 <p align="center">
@@ -28,26 +29,41 @@ curl -sL https://raw.githubusercontent.com/baoxautrainhglaidzai/termux-installer
 
 ## ✨ Features
 
-- 🛠 **All-in-one installer** – Installs multiple essential packages at once.  
-- ⚡ **Fast & lightweight** – Minimal commands, optimized for speed.  
-- 🧩 **Beginner-friendly** – Perfect for fresh Termux setups.  
-- 🔄 **Automatic update** – Updates Termux before installing.  
-- 🎯 **Universal** – Works on any Termux-supported device.  
+- 🛠 **All-in-one installer** – Installs all core packages in one go.  
+- ⚡ **Fast & lightweight** – No unnecessary packages.  
+- 🧩 **Beginner-friendly** – Perfect for fresh Termux installs.  
+- 🔄 **Automatic update** – Runs `pkg update && pkg upgrade` before installation.  
+- 🎯 **Customizable** – Optional extras for personalization.  
 
 ---
 
-## 📦 Packages Included
+## 📦 Core Packages (Installed by default)
 
 | Package   | Description |
 |-----------|-------------|
+| **curl**  | Transfer data over HTTP/HTTPS |
 | **git**   | Source code management |
-| **curl**  | Transfer data via HTTP/HTTPS |
 | **wget**  | Download files from the internet |
 | **vim**   | Advanced text editor |
 | **python**| Python programming language |
 | **nodejs**| JavaScript runtime |
-| **zip**   | Compress files |
-| **unzip** | Extract files |
+
+---
+
+## 🎨 Optional Packages (Choose if you want extra tools)
+
+| Package     | Description |
+|-------------|-------------|
+| **neofetch**| Show system info in style |
+| **cbonsai** | Fun ASCII bonsai tree animation |
+| **figlet**  | Create large text banners |
+| **toilet**  | Fancy text styling |
+| **cmatrix** | Matrix-style terminal animation |
+
+> You can install these after the core setup by running:
+```bash
+pkg install neofetch cbonsai figlet toilet cmatrix -y
+```
 
 ---
 
@@ -63,7 +79,7 @@ bash install.sh
 
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+Released under the [MIT License](LICENSE).
 
 ---
 
