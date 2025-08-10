@@ -1,52 +1,5 @@
-<h1 align="center">📦 Termux Basic Package Installer</h1>
-
-<p align="center">
-  <strong>Install essential Termux packages with a single command</strong><br>
-  <em>Fast · Simple · Perfect for Beginners</em>
-</p>
-
-<p align="center">
-  <a href="https://github.com/baoxautrainhglaidzai/termux-installer-basic-package/stargazers">
-    <img src="https://img.shields.io/github/stars/baoxautrainhglaidzai/termux-installer-basic-package?color=yellow&style=for-the-badge" alt="Stars">
-  </a>
-  <a href="https://github.com/baoxautrainhglaidzai/termux-installer-basic-package/network/members">
-    <img src="https://img.shields.io/github/forks/baoxautrainhglaidzai/termux-installer-basic-package?color=blue&style=for-the-badge" alt="Forks">
-  </a>
-  <a href="https://github.com/baoxautrainhglaidzai/termux-installer-basic-package/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/baoxautrainhglaidzai/termux-installer-basic-package?color=brightgreen&style=for-the-badge" alt="License">
-  </a>
-</p>
-
----
-
-## 🚀 Quick Install
-
-```bash
-pkg update && pkg upgrade -y && curl -sL https://raw.githubusercontent.com/baoxautrainhglaidzai/termux-installer-basic-package/main/install.sh && chmod +x install.sh && bash install.sh
-```
-
----
-
-## ✨ Features
-
-- 🛠 **All-in-one installer** – Installs multiple essential packages at once.  
-- ⚡ **Fast & lightweight** – Minimal commands, optimized for speed.  
-- 🧩 **Beginner-friendly** – Perfect for fresh Termux setups.  
-- 🔄 **Automatic update** – Updates Termux before installing.  
-- 🎯 **Universal** – Works on any Termux-supported device.  
-
----
-
-## 📂 Manual Installation
-
-```bash
-git clone https://github.com/baoxautrainhglaidzai/termux-installer-basic-package.git
+<h1 align="center">📦 Termux Advanced Desktop Installer</h1><p align="center"><strong>Deploy a complete XFCE graphical desktop environment on Termux with a single command.</strong><br><em>Comprehensive · Powerful · Automated</em></p><p align="center"><a href="https://github.com/baoxautrainhglaidzai/termux-installer-basic-package/stargazers"><img src="https://img.shields.io/github/stars/baoxautrainhglaidzai/termux-installer-basic-package?color=yellow&style=for-the-badge" alt="Stars"></a><a href="https://github.com/baoxautrainhglaidzai/termux-installer-basic-package/network/members"><img src="https://img.shields.io/github/forks/baoxautrainhglaidzai/termux-installer-basic-package?color=blue&style=for-the-badge" alt="Forks"></a><a href="https://github.com/baoxautrainhglaidzai/termux-installer-basic-package/blob/main/LICENSE"><img src="https://img.shields.io/github/license/baoxautrainhglaidzai/termux-installer-basic-package?color=brightgreen&style=for-the-badge" alt="License"></a></p>🚀 OverviewThis script automates the installation of a complete XFCE desktop environment on your Termux instance. It goes far beyond a basic setup, bundling a massive collection of GUI applications, development tools, Python libraries, and system utilities.After running this script, you will have a fully functional graphical desktop accessible via a VNC client, transforming your device into a powerful portable workstation.⚠️ Important NotesLarge Installation: This script will download and install a very large number of packages. The process will take a significant amount of time and consume several gigabytes of storage space.Stable Connection Required: Ensure you are on a stable and fast Wi-Fi connection before starting.For Fresh Setups: This script is best used on a clean or fresh Termux installation to avoid potential package conflicts.✨ What's Included?This installer bundles hundreds of packages. Here are some of the highlights:🖥️ Desktop Environment & Window ManagersXFCE4: A complete, lightweight, and user-friendly desktop environment (panel, file manager, settings, etc.).Window Managers: Includes Openbox, Fluxbox, i3, and bspwm for users who prefer tiling or alternative WMs.Utilities: picom (compositor), rofi/dmenu (launchers), tint2 (panel), and more.🛠️ Development ToolsLanguages: python, python2, rust, clang.Core Utilities: git, wget, curl, openssh, nano, vim.Libraries: A vast collection of qt5, gtk, sdl, and other foundational libraries for building and running GUI applications.🐍 Python EcosystemAI/ML & Data Science: torch, transformers, scikit-learn, numpy, matplotlib.Web & General Purpose: flask, requests, pygame, beautifulsoup4.🌐 GUI ApplicationsWeb Browsers: otter-browser, netsurf.Terminals: xfce4-terminal, qterminal, aterm, roxterm.Text Editors & IDEs: geany, leafpad, featherpad, emacs-x, qt-creator.System & Utilities: thunar (file manager), file-roller (archive manager), htop, neofetch, wireshark-gtk.And many more...⚙️ InstallationQuick Install (Recommended)Execute this single command in your Termux shell to download and run the installer.pkg update && pkg upgrade -y && curl -sL [https://raw.githubusercontent.com/baoxautrainhglaidzai/termux-installer-basic-package/main/install.sh](https://raw.githubusercontent.com/baoxautrainhglaidzai/termux-installer-basic-package/main/install.sh) | bash
+Manual InstallationAlternatively, you can clone the repository and run the script manually.git clone [https://github.com/baoxautrainhglaidzai/termux-installer-basic-package.git](https://github.com/baoxautrainhglaidzai/termux-installer-basic-package.git)
 cd termux-installer-basic-package
 bash install.sh
-```
-
----
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE)
+📜 LicenseThis project is licensed under the [MIT License](
