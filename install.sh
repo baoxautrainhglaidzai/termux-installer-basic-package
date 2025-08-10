@@ -1,55 +1,45 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
 clear
+printf "\e[1;35m"
 echo "=============================================="
-echo "        Termux Basic Package Installer        "
-echo "                 by Divine =/                  "
+echo "         Termux Basic Package Installer       "
+echo "               by Divine =/                   "
 echo "=============================================="
-echo
+printf "\e[0m\n"
 
-# Kiểm tra kết nối mạng
-echo "Checking internet connection..."
-if ping -c 1 google.com >/dev/null 2>&1; then
-  echo "Internet connection OK."
-else
-  echo "No internet connection detected. Please connect and try again."
+echo -e "\e[1;36m[~] Checking internet connection...\e[0m"
+if ! ping -c 1 google.com >/dev/null 2>&1; then
+  echo -e "\e[1;31m[✘] No internet connection. Please connect!\e[0m"
   exit 1
 fi
-echo
+echo -e "\e[1;32m[✔] Internet OK.\e[0m\n"
 
 spinner() {
   local pid=$1
-  local delay=0.1
-  local spinstr='|/-\'
+  local delay=0.08
+  local spinstr='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
   local i=0
   while kill -0 "$pid" 2>/dev/null; do
-    i=$(( (i+1) %4 ))
-    printf "\r[%c] Installing..." "${spinstr:$i:1}"
+    i=$(( (i+1) %10 ))
+    printf "\r\e[1;33m[%s] Installing...\e[0m" "${spinstr:$i:1}"
     sleep $delay
   done
-  printf "\r[✔] Installed     \n"
+  printf "\r\e[1;32m[✔] Done!         \e[0m\n"
 }
 
-install_package() {
-  local pkg_name=$1
-  if dpkg -s "$pkg_name" >/dev/null 2>&1; then
-    echo "• $pkg_name is already installed ✅"
-  else
-    echo "• Installing $pkg_name..."
-    pkg install "$pkg_name" -y >/dev/null 2>&1 &
-    spinner $!
-    # Kiểm tra lại sau khi cài
-    if dpkg -s "$pkg_name" >/dev/null 2>&1; then
-      echo "• $pkg_name installed successfully."
-    else
-      echo "⚠ Failed to install $pkg_name. Please check manually."
-    fi
-  fi
+progress_bar() {
+  local width=30
+  for ((i=0; i<=width; i++)); do
+    printf "\r\e[1;34m[%-*s] %d%%\e[0m" $width "$(printf '#%.0s' $(seq 1 $i))" $(( i * 100 / width ))
+    sleep 0.03
+  done
   echo
 }
 
-echo "Updating packages..."
-pkg update -y >/dev/null 2>&1 && pkg upgrade -y >/dev/null 2>&1
+echo -e "\e[1;36m[~] Updating Termux packages...\e[0m"
+pkg update -y >/dev/null 2>&1 && pkg upgrade -y >/dev/null 2>&1 &
+spinner $!
 echo
 
 packages=(
@@ -59,11 +49,21 @@ packages=(
   pulseaudio pv ncurses-utils
 )
 
-echo "Installing packages..."
+echo -e "\e[1;36m[~] Installing packages...\e[0m"
 for pkg in "${packages[@]}"; do
-  install_package "$pkg"
+  if dpkg -s "$pkg" >/dev/null 2>&1; then
+    echo -e "• \e[1;32m$pkg already installed\e[0m"
+  else
+    echo -ne "• Installing \e[1;33m$pkg\e[0m..."
+    pkg install "$pkg" -y >/dev/null 2>&1 &
+    spinner $!
+  fi
 done
 
-echo "=============================================="
-echo "✔ All packages have been installed!"
-echo "=============================================="
+echo
+echo -e "\e[1;35m[~] Finalizing setup...\e[0m"
+progress_bar
+echo
+echo -e "\e[1;32m=============================================="
+echo "   ✔ All packages have been installed!        "
+echo "==============================================\e[0m"
