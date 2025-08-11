@@ -9,11 +9,11 @@ echo "=============================================="
 printf "\e[0m\n"
 
 echo -e "\e[1;36m[~] Checking internet connection...\e[0m"
-if ! ping -c 1 google.com >/dev/null 2>&1; then
+if ! ping -c 1 -W 2 google.com >/dev/null 2>&1; then
   echo -e "\e[1;31m[✘] No internet connection. Please connect!\e[0m"
   exit 1
 fi
-echo -e "\e[1;32m[✔] Internet OK.\e[0m\n"
+echo -e "\e[1;32m[✔] Internet connection OK.\e[0m\n"
 
 spinner() {
   local pid=$1
@@ -46,13 +46,13 @@ packages=(
   git python curl perl ruby bash clang man rust
   zip unzip wget openssl openssh nodejs ffmpeg htop
   screen ripgrep fd fzf bat tealdeer tmux jq rsync mpv
-  pulseaudio pv ncurses-utils
+  pulseaudio pv ncurses-utils termux-api
 )
 
 echo -e "\e[1;36m[~] Installing packages...\e[0m"
 for pkg in "${packages[@]}"; do
   if dpkg -s "$pkg" >/dev/null 2>&1; then
-    echo -e "• \e[1;32m$pkg already installed\e[0m"
+    echo -e "• \e[1;32m$pkg\e[0m already installed"
   else
     echo -ne "• Installing \e[1;33m$pkg\e[0m..."
     pkg install "$pkg" -y >/dev/null 2>&1 &
@@ -65,5 +65,5 @@ echo -e "\e[1;35m[~] Finalizing setup...\e[0m"
 progress_bar
 echo
 echo -e "\e[1;32m=============================================="
-echo "   ✔ All packages have been installed!        "
+echo "   ✔ All packages have been successfully installed!  "
 echo "==============================================\e[0m"
