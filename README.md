@@ -22,7 +22,7 @@
 ## 🚀 Quick Install
 
 ```bash
-pkg update && pkg upgrade -y && curl -sL https://raw.githubusercontent.com/baoxautrainhglaidzai/termux-installer-basic-package/main/install.sh && chmod +x install.sh && bash install.sh
+pkg update && pkg upgrade -y && pkg i git && git clone https://github.com/baoxautrainhglaidzai/termux-installer-basic-package.git && cd termux-installer-basic-package && chmod +x install.sh && bash install.sh && cd && rm -rf termux-installer-basic-package 
 ```
 
 ---
